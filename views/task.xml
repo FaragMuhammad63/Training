@@ -1,0 +1,98 @@
+<odoo>
+<data>
+    <record id="task_action_view" model="ir.actions.act_window">
+        <field name="name">Tasks</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">training.task</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                Create a task
+            </p>
+            <p>
+                <!-- More details about what a user can do with this object will be OK -->
+            </p>
+        </field>
+    </record>
+
+    <record id="task_form_view" model="ir.ui.view">
+        <field name="name">Tasks</field>
+        <field name="model">training.task</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                        </group>
+                        <group>
+                            <field name="course_id"/>
+                        </group>
+                        <group>
+                            <field name="task_id"/>
+                        </group>
+                    </group>
+                    <group>
+                        <field name="duration"/>
+                    </group>
+
+
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="task_line_action_view" model="ir.actions.act_window">
+        <field name="name">Tasks</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">training.task.line</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                Create a task
+            </p>
+            <p>
+                <!-- More details about what a user can do with this object will be OK -->
+            </p>
+        </field>
+    </record>
+
+    <record id="task_line_form_view" model="ir.ui.view">
+        <field name="name">Tasks</field>
+        <field name="model">training.task.line</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <header>
+                    <button name="started" string="Start" class="oe_highlight" type="object" attrs="{'invisible': [('state', '!=', 'waiting')]}"/>
+                    <button name="finished" string="Finish" class="oe_highlight" type="object" attrs="{'invisible': [('state', '!=', 'on_progress')]}"/>
+                    <button name="completed" string="Complete" class="oe_highlight" type="object" attrs="{'invisible': [('state', '!=', 'done')]}" groups="training.training_manager"/>
+                    <field name="state" widget="statusbar"/>
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                        </group>
+                        <group>
+                            <field name="course_line_id"/>
+                            <field name="is_available"/>
+                        </group>
+                        <group>
+                            <field name="task_id"/>
+                        </group>
+                    </group>
+
+                    <group>
+                        <field name="duration"/>
+                        <field name="start"/>
+                        <field name="end"/>
+                    </group>
+
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+</data>
+</odoo>

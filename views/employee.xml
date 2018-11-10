@@ -1,0 +1,43 @@
+<odoo>
+    <data>
+        <record id="employee_action_view" model="ir.actions.act_window">
+            <field name="name">Courses</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">res.users</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Create an Employee
+                </p>
+                <p>
+                <!-- More details about what a user can do with this object will be OK -->
+                </p>
+            </field>
+        </record>
+
+        <record id="employee_form_view" model="ir.ui.view">
+            <field name="name">Employee</field>
+            <field name="model">res.users</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                        </group>
+                        <notebook>
+                            <page string="Courses">
+                                <group>
+                                    <tree string="Courses">
+                                        <field name="course_line_ids"/>
+                                    </tree>
+                                </group>
+                            </page>
+                        </notebook>
+
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+    </data>
+</odoo>

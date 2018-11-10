@@ -1,0 +1,39 @@
+<odoo>
+    <data>
+
+        <record id="assign_from_view" model="ir.ui.view">
+            <field name="name">assign.from.view</field>
+            <field name="model">training.assign</field>
+            <field name="arch" type="xml">
+                <form string="Assign course to user">
+                    <sheet>
+                        <group>
+                            <field name="employee_id" required="True"/>
+                        </group>
+                        <group>
+                            <field name ="course_id" required="True"/>
+                        </group>
+                        <footer>
+                            <button string="Assign" name="assign_course" type="object" class="oe_highlight"/>
+                        </footer>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="assign_view_actions" model="ir.actions.act_window">
+            <field name="name">Assign view</field>
+            <field name="res_model">training.assign</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="assign_from_view"/>
+            <field name="target">new</field>
+        </record>
+
+
+
+
+
+    </data>
+</odoo>

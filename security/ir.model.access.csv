@@ -1,0 +1,15 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+training_employee_base,training.employee.base,model_training_employee,base.group_user,1,1,1,1
+training_course_base,training.course.base,model_training_course,base.group_user,1,1,1,1
+training_task_base,training.task.base,model_training_task,base.group_user,1,1,1,1
+training_course_line_base,training.course.line.base,model_training_course_line,base.group_user,1,1,1,1
+training_task_line_base,training.task.line.base,model_training_task_line,base.group_user,1,1,1,1
+training_assign_base,training.assign.base,model_training_assign,base.group_user,1,1,1,1
+
+training_employee_manager,training.employee.manager,model_training_employee,training_manager,1,0,0,0
+
+training_employee_employee,training.employee.employee,model_training_employee,training_employee,0,0,0,0
+training_course_employee,training.course.employee,model_training_course,training_employee,1,0,0,0
+training_task_employee,training.task.employee,model_training_task,training_employee,1,0,0,0
+training_course_line_employee,training.course.line.employee,model_training_course_line,training_employee,1,0,0,0
+training_task_line_employee,training.task.line.employee,model_training_task_line,training_employee,1,1,0,0

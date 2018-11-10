@@ -1,0 +1,32 @@
+<odoo>
+    <data>
+        <record id="training_Category" model="ir.module.category">
+            <field name="name">Training</field>
+            <field name="sequence" eval="1"/>
+        </record>
+        <record id="training_manager" model="res.groups">
+            <field name="name">Training / Manager</field>
+            <field name="category_id" ref="training_Category"/>
+            <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+            <field name="users"  eval="[(4, ref('base.user_root'))]"/>
+        </record>
+        <record id="training_employee" model="res.groups">
+            <field name="name">Training / employee</field>
+            <field name="category_id" ref="training_Category"/>
+            <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+        </record>
+
+        <record id="course_line_manager_rule" model="ir.rule">
+            <field name="name"></field>
+            <field ref="model_training_course_line" name="model_id"/>
+            <field name="domain_force">[('employee_id', '=', user.id)]</field>
+            <field name="perm_write" eval="1"/>
+            <field name="perm_create" eval="1"/>
+            <field name="perm_read" eval="1"/>
+            <field name="perm_unlink" eval="1"/>
+            <!-- You can attach this rule to a specific group, Or make it Global -->
+            <field name="groups" eval="[(4, ref('training_employee'))]"/>
+            <!--<field name="global" eval="1"/> -->
+        </record>
+    </data>
+</odoo>

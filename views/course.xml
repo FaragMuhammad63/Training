@@ -1,0 +1,88 @@
+<odoo>
+    <data>
+        <record id="course_action_view" model="ir.actions.act_window">
+            <field name="name">Courses</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">training.course</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Create a course
+                </p>
+                <p>
+                <!-- More details about what a user can do with this object will be OK -->
+                </p>
+            </field>
+        </record>
+
+        <record id="course_line_action_view" model="ir.actions.act_window">
+            <field name="name">Courses</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">training.course.line</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Assign a course for user
+                </p>
+                <p>
+                <!-- More details about what a user can do with this object will be OK -->
+                </p>
+            </field>
+        </record>
+
+        <record id="course_form_view" model="ir.ui.view">
+            <field name="name">Courses</field>
+            <field name="model">training.course</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="description"/>
+                        </group>
+                        <group>
+                            <field name="task_ids" attrs="{'readonly': 1}">
+                                <tree>
+                                    <field name="name"/>
+                                    <field name="task_id"/>
+                                    <field name="duration"/>
+
+
+                                </tree>
+                            </field>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+
+
+        <record id="course_line_form_view" model="ir.ui.view">
+            <field name="name">Courses</field>
+            <field name="model">training.course.line</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <sheet>
+                        <group>
+                            <field name="course_id"/>
+                            <field name="employee_id"/>
+                        </group>
+                        <group>
+                            <field name="task_line_ids" attrs="{'readonly': 1}">
+                                <tree>
+                                    <field name="name"/>
+                                    <field name="task_id"/>
+                                    <field name="duration"/>
+                                    <field name="state"/>
+                                </tree>
+                            </field>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+    </data>
+</odoo>

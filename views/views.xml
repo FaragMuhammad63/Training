@@ -1,0 +1,29 @@
+<odoo>
+    <data>
+
+        <!-- Top menu item -->
+
+        <menuitem name="Training" id="training_menu_root"/>
+
+        <!-- menu categories -->
+
+        <menuitem name="Courses and Tasks" id="courses_menu" parent="training_menu_root" groups="training.training_manager"/>
+        <menuitem name="Employees" id="employee_menu" parent="training_menu_root" groups="training.training_manager"/>
+        <menuitem name="My Courses" id="my_courses_menu" parent="training_menu_root"/>
+
+        <!-- actions -->
+
+        <menuitem name="Courses" id="training_menu_course" parent="courses_menu"
+                  action="course_action_view" sequence="1"/>
+        <menuitem name="Tasks" id="training_menu_task" parent="courses_menu"
+                  action="task_action_view" sequence="2"/>
+        <menuitem name="Employees" id="training_menu_employee" parent="employee_menu"
+                  action="employee_action_view"/>
+        <menuitem name="Assign course" id="training_menu_assign" parent="employee_menu"
+                  action="assign_view_actions"/>
+        <menuitem name="Courses" id="my_courses_menu_assign" parent="my_courses_menu"
+                  action="course_line_action_view"/>
+
+
+    </data>
+</odoo>
